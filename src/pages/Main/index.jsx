@@ -15,9 +15,8 @@ import LinkItem from "../../components/LinkItem";
 
 const MainWrapper = styled.div`
   width: 100%;
-  height: calc(100% - 70px);
   padding-top: 70px;
-  padding-bottom: 100px;
+  padding-bottom: 48px;
 
   .main-top-navigation {
     position: fixed; //position: fixed, absolute, relative 에 대해 알아보세요!

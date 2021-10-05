@@ -99,4 +99,6 @@ textarea {
 }
 input {
   caret-color: #c62917;
+  all:unset;
+  cursor: auto;
 }
