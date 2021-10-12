@@ -5,7 +5,6 @@ import { useHistory } from "react-router";
 
 const MypageTopWrapper = styled.div`
   .top-navigation {
-    width: 100%;
     height: 48px;
     display: flex;
     justify-content: space-between;

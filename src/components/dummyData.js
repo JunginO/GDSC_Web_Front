@@ -166,3 +166,24 @@ export const dummyDetailMessage = [
     contents: "GDSC란 무엇인가요?",
   },
 ];
+
+export const dummyCareer = [
+  {
+    title: "공기업 가고싶어용",
+    contents: "000000000000~",
+    date: "14:18",
+    like: 0,
+    comments: 2,
+    link: "/board/list",
+    detaillink: "/board/detail",
+  },
+];
+export const dummyPromotion = [
+  {
+    title: "홍보페이지에용",
+    date: "14:18",
+    like: 0,
+    comments: 2,
+    link: "/board/list",
+  },
+];

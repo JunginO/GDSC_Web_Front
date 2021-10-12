@@ -11,6 +11,11 @@ import Mypage from "./pages/Mypage";
 import MypageAuthDetail from "./pages/Mypage/components/schoolAuthDetail";
 import MypageEdit from "./pages/Mypage/components/nickChange";
 import MypageAuth from "./pages/Mypage/components/schoolAuth";
+import Setting from "./pages/Setting";
+import BoardDetail from "./pages/BoardDetail";
+import Search from "./pages/Search";
+import Post from "./pages/Post";
+import Contents from "./pages/BoardDetail/components/BoardContent";
 const App = () => {
   return (
     <BrowserRouter>
@@ -22,9 +27,14 @@ const App = () => {
         <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/mypage" component={Mypage} />
+        <Route exact path="/setting" component={Setting} />
         <Route exact path="/mypage/auth" component={MypageAuth} />
         <Route exact path="/mypage/edit" component={MypageEdit} />
         <Route exact path="/mypage/auth/detail" component={MypageAuthDetail} />
+        <Route exact path="/board/list" component={BoardDetail} />
+        <Route exact path="/search" component={Search} />
+        <Route exact path="/board/post" component={Post} />
+        <Route exact path="/board/detail" component={Contents} />
       </Switch>
     </BrowserRouter>
   );
