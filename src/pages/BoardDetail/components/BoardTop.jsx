@@ -5,15 +5,12 @@ import arrow from "../../../assets/vector/arrow.svg";
 
 import search from "../../../assets/nav/search.svg";
 import { COLORS } from "../../../components/Colors";
-import { Link } from "react-router-dom";
 
 const BoardTopWrapper = styled.div`
-  .top-navigation {
+  .top-box {
     height: 48px;
     display: flex;
     align-items: center;
-    margin-left: 16px;
-    margin: 10px;
   }
 
   .arrow {
@@ -49,7 +46,7 @@ const BoardTop = () => {
   };
   return (
     <BoardTopWrapper>
-      <div className="top-navigation">
+      <div className="top-box">
         <button>
           <img src={arrow} alt="화살표" className="arrow" onClick={goBack} />
         </button>

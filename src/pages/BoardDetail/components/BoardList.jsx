@@ -37,10 +37,11 @@ const BoardListWrapper = styled.div`
   }
 
   .board-container {
-    margin-top: 30px;
-    padding-top: 30px;
     padding: 8px 16px;
     border-bottom: solid 1px ${COLORS.grey_400};
+  }
+  .small-icons {
+    text-align: right;
   }
 `;
 

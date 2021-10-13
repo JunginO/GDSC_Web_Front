@@ -4,6 +4,8 @@ import { useEffect } from "react/cjs/react.development";
 import styled from "styled-components";
 import { COLORS } from "../../components/Colors";
 import arrow from "../../assets/vector/arrow.svg";
+import iconImg from "../../assets/icon/new.svg";
+
 const SettingWrapper = styled.div`
   padding-top: 48px;
   input[type="checkbox"] {
@@ -19,6 +21,7 @@ const SettingWrapper = styled.div`
     height: 12px;
     border: none;
     border-radius: 100%;
+    background: url("${iconImg}");
     background-color: ${COLORS.red};
     border: 1px solid ${COLORS.red};
   }

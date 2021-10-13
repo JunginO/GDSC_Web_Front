@@ -7,14 +7,12 @@ import pencil from "../../assets/icon/pencil.svg";
 import { COLORS } from "../../components/Colors";
 const BoardDetailWrapper = styled.div`
   width: 100%;
-  padding-top: 40px;
 
   .pencil-icon {
     width: 10px;
     margin: 5px;
   }
-  .write-text {
-  }
+
   .write-button {
     background-color: ${COLORS.grey_300};
     padding: 8px;
@@ -23,6 +21,7 @@ const BoardDetailWrapper = styled.div`
     position: fixed;
     bottom: 0px;
     left: 50%;
+    margin-bottom: 20px;
   }
 `;
 
