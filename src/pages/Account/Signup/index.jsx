@@ -4,6 +4,8 @@ import styled from "styled-components";
 import MainInput from "../../../components/Input/MainInput";
 import MainButton from "../../../components/Button/MainButton";
 import MypageTop from "../../../layout/MypageTop";
+
+import axios from "axios";
 const MainWrapper = styled.div`
   width: 100%;
   padding-top: 40px;
@@ -36,7 +38,7 @@ const Index = () => {
   const [email, setEmail] = useState("");
   const [nickname, setNickname] = useState("");
   const [major, setMajor] = useState("");
-
+  const [hp, setHP] = useState("");
   const [errorNum, setErrorNum] = useState(0);
   const [errorText, setErrorText] = useState(0);
   const [errorMail, setErrorMail] = useState(0);
@@ -89,6 +91,9 @@ const Index = () => {
   const onChangeMajor = (e) => {
     setMajor(e.target.value);
   };
+  const onChangeHP = (e) => {
+    setHP(e.target.value);
+  };
 
   const onChangeName = (e) => {
     setName(e.target.value);
@@ -97,6 +102,30 @@ const Index = () => {
   const onChangeNickname = (e) => {
     setNickname(e.target.value);
   };
+
+  const onSubmitHandler = async () => {
+    try {
+      const result = await axios({
+        method: "POST",
+        url: "/api/user",
+        data: {
+          user_id: id,
+          password: password,
+          name: name,
+          email: email,
+          nickname: nickname,
+          major: major,
+          hp: hp,
+        },
+      });
+      if (result.data.success) {
+        window.location.replace("/");
+      }
+    } catch {
+      alert("eeeeeeeeeeeeeeeeerror");
+    }
+  };
+
   return (
     <MainWrapper>
       <MypageTop title={"회원가입"} />
@@ -150,6 +179,13 @@ const Index = () => {
           onChange={onChangeNickname}
           placeholder="닉네임을 입력해주세요"
         />
+        <p className="text-label">전화번호</p>
+        <MainInput
+          value={hp}
+          type="hp"
+          onChange={onChangeHP}
+          placeholder="전화번호를 입력해주세요"
+        />
         <p className="text-label">전공</p>
         <MainInput
           value={major}
@@ -158,7 +194,7 @@ const Index = () => {
           placeholder="전공을 입력해주세요"
         />
         <div className="bottom-button">
-          <MainButton text="회원가입" onClick={() => alert("회원가입")} />
+          <MainButton text="회원가입" onClick={onSubmitHandler} />
         </div>
       </div>
     </MainWrapper>

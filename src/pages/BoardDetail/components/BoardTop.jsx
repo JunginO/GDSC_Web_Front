@@ -36,7 +36,7 @@ const BoardTopWrapper = styled.div`
   }
 `;
 
-const BoardTop = () => {
+const BoardTop = ({ data }) => {
   const history = useHistory();
   const goBack = () => {
     history.goBack();
@@ -51,7 +51,7 @@ const BoardTop = () => {
           <img src={arrow} alt="화살표" className="arrow" onClick={goBack} />
         </button>
         <div class="text-wrapper">
-          <h4>공기업게시판</h4>
+          <h4>{data}</h4>
           <h5>GDSC</h5>
         </div>
         <button onClick={handleClick} className="search">

@@ -11,6 +11,7 @@ import RealTimeBoard from "./components/RealTimeBoard";
 import Myboard from "./components/Myboard";
 import Popular from "./components/Popular";
 import LinkItem from "../../components/LinkItem";
+import axios from "axios";
 
 const MainWrapper = styled.div`
   width: 100%;
@@ -95,6 +96,18 @@ const Index = () => {
       });
     }
   }, []);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const result = axios("/api/user/test");
+        console.log((await result).data.data);
+      } catch (err) {
+        console.log(err, "errosr");
+      }
+    };
+    fetchData();
+  });
 
   return (
     <MainWrapper>

@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-
+import axios from "axios";
 import MainInput from "../../../components/Input/MainInput";
 import MainButton from "../../../components/Button/MainButton";
 import logo from "../../../assets/logo/logo.png";
 import { Link } from "react-router-dom";
 import { COLORS } from "../../../components/Colors";
+
 const MainWrapper = styled.div`
   width: 100%;
   padding-top: 40px;
@@ -44,6 +45,8 @@ const MainWrapper = styled.div`
 `;
 
 const Index = () => {
+  const [userId, setUserId] = useState("");
+  const [password, setPassword] = useState("");
   const [isFocus, setIsFocus] = useState(false);
 
   const handleFocus = () => {
@@ -51,6 +54,32 @@ const Index = () => {
       setIsFocus(false);
     } else {
       setIsFocus(true);
+    }
+  };
+  const onChangeUserId = (e) => {
+    setUserId(e.target.value);
+  };
+  const onChangePassword = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const onClickLogin = async () => {
+    try {
+      const result = await axios({
+        method: "POST",
+        url: "/api/user/login",
+        data: {
+          user_id: userId,
+          password: password,
+        },
+      });
+      if (result.data.success) {
+        window.location.replace("/");
+      } else {
+        alert("로그인오류");
+      }
+    } catch {
+      alert("server error");
     }
   };
 
@@ -65,17 +94,23 @@ const Index = () => {
         <p className="title-text">에브리타임</p>
       </div>
       <div className="input-wrap">
-        <MainInput type="text" placeholder="아이디" handleFocus={handleFocus} />
+        <MainInput
+          type="text"
+          placeholder="아이디"
+          handleFocus={handleFocus}
+          onChange={onChangeUserId}
+        />
       </div>
       <div className="input-wrap">
         <MainInput
           type="password"
           placeholder="비밀번호"
           handleFocus={handleFocus}
+          onChange={onChangePassword}
         />
       </div>
       <div className="input-wrap">
-        <MainButton text="에브리타임 로그인" onClick={() => alert("로그인!")} />
+        <MainButton text="에브리타임 로그인" onClick={onClickLogin} />
       </div>
       <div className="signup-button">
         <p>
